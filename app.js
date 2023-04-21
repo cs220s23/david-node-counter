@@ -2,9 +2,6 @@ const http = require('http')
 const port = 80
 
 function readCount() {
-    try {
-        const count = open('item.txt')
-    }
 }
 
 // Create a server object:
