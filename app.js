@@ -3,6 +3,7 @@ import Redis from "ioredis";
 const redis = new Redis();
 
 var num = redis.get('counter');
+/* document.getElementById("num").innerHTML=num; */
 
 function  addOne() {
     if (num == null) {
