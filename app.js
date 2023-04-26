@@ -1,23 +1,13 @@
-const redis = require('redis');
 const { JSDOM } = require('jsdom');
+const fs = require('fs');
 const http = require("http");
-const client = redis.createClient({
-    host: process.env.REDIS_HOST,
-    port: process.env.REDIS_PORT,
-});
-
-
-
-// Redis database client
-client.on('error', err => console.log('Redis Server Error', err));
-client.connect();
-client.set('counter', 'Hello World');
 
 // http server for displaying on a webpage
 const server = http.createServer((req , res) => {
     const dom = new JSDOM('<html><body></body></html>');
     const body = dom.window.document.body;
-    const num = client.get('counter');
+    // prioritizing docker/ec2 deployment, will implement this later
+    const num = 15;
     const h1 = dom.window.document.createElement('h1');
     h1.textContent = "Counter: " + num;
 
@@ -30,14 +20,6 @@ const server = http.createServer((req , res) => {
 })
 
 
-
-async function increment() {
-    // increment counter by 1 (why doesn't this work???)
-    client.incr('counter');
-}
-
 server.listen(3000, () => {
     console.log("listening on port 3000")
 });
-
-// increment();
