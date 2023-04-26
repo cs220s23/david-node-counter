@@ -1,6 +1,7 @@
 const { JSDOM } = require('jsdom');
 const fs = require('fs');
 const http = require("http");
+const port = 80;
 
 // function readCount() {
 //     try {
@@ -25,7 +26,6 @@ const server = http.createServer((req , res) => {
     res.end();
 })
 
-
-server.listen(3000, () => {
-    console.log("listening on port 3000")
+server.listen(port, () => {
+    console.log("Listening on port " + port);
 });
