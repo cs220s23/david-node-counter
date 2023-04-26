@@ -12,7 +12,7 @@ git clone https://github.com/cs220s23/david-node-counter && cd david-node-counte
 ```
 Launch a Redis server through Docker in detached mode.
 ``` bash
-docker run -d -p 6379:6379 -it redis/redis-stack-server:latest
+docker run --name redis -d -p 6379:6379 redis
 ```
 
 ### Resources Used
