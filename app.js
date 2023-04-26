@@ -1,15 +1,16 @@
-const port = 80
-import Redis from "ioredis";
-const redis = new Redis();
-
-var num = redis.get('counter');
-/* document.getElementById("num").innerHTML=num; */
-
-function  addOne() {
-    if (num == null) {
-        redis.set('counter', 0);
-        num = redis.get('counter');
+const redis = require('redis');
+const client = redis.createClient({
+    socket: {
+        host: 'redis',
+        port: '6379'
     }
-    return redis.set('counter', num+1);
-}
-addOne();
+});
+
+client.connect();
+client.on('error', err => console.log('Redis Server', err));
+
+client.incr('counter');
+
+console.log(client.get('counter'));
+
+

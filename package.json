@@ -1,9 +1,8 @@
 {
-  "name": "nodejs-docker-app",
+  "name": "david-node-counter",
   "version": "1.0.0",
-  "description": "Working with node and docker nothing big",
+  "description": "A reimplementation of a class example of a web counter",
   "main": "app.js",
-  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -11,7 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "ioredis": "^5.3.2",
     "redis": "^4.6.5"
   }
 }
