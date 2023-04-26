@@ -1,37 +1,12 @@
-const redis = require('redis');
-const {createClient} = require("redis");
-const client = createClient({
-    socket: {
-        host: 'redis',
-        port: '6379'
-    }
-});
-// Set a key-value pair
-client.set('myKey', 'myValue', function(err, result) {
-    if (err) {
-        console.error(err);
-    } else {
-        console.log('Result:', result);
-    }
-});
+import { createClient } from 'redis';
 
-// Get the value of a key
-client.get('myKey', function(err, result) {
-    if (err) {
-        console.error(err);
-    } else {
-        console.log('Value:', result);
-    }
-});
+const client = createClient();
 
-// Increment a counter
-client.incr('myCounter', function(err, result) {
-    if (err) {
-        console.error(err);
-    } else {
-        console.log('Counter:', result);
-    }
-});
-//
-// // Close the Redis connection
-// client.quit();
+client.on('error', err => console.log('Redis Client Error', err));
+
+await client.connect();
+
+await client.set('key', "\x00");
+const value = await client.get('key');
+console.log(value);
+await client.disconnect();
