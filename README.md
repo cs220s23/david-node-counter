@@ -15,9 +15,9 @@ Build this repository in a new Docker image, tagged `counter`
 ``` bash
 docker build -t counter .
 ```
-Then, run the container (assuming it has tag`counter`), with port 3000, in detached mode, giving the container the name `counter`.
+Then, run the container (assuming it has tag `counter`), with port 80, in detached mode, giving the container the name `counter`.
 ```bash
-docker run -d -p 3000:3000  --name counter counter
+docker run -d -p 80:80  --name counter counter
 ```
 
 ## Stop counter
