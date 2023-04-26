@@ -5,7 +5,7 @@ WORKDIR /app
 COPY . .
 
 # idk if i need this
-CMD ["npm", "install", "redis"]
+#CMD ["npm", "install", "redis"]
 
 EXPOSE 80
 
