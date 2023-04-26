@@ -1,7 +1,7 @@
 # Node.js Web Counter
 
 This project is a recreation of a web counter project used as an
-example in previous class examples, recreated with Node.js, using Redis as a database, ran with Docker containers, within a remote server (AWS EC2).
+example in previous class examples, recreated with Node.js, getting the count through a, ran with Docker containers, within a remote server (AWS EC2).
 
 ## Setup
 TODO
@@ -10,16 +10,31 @@ TODO
 ``` bash
 git clone https://github.com/cs220s23/david-node-counter && cd david-node-counter
 ```
-Launch a Redis server through Docker in detached mode.
+
+Build this repository in a new Docker image, tagged `counter`
 ``` bash
-docker run --name redis -d -p 6379:6379 redis
+docker build -t counter .
+```
+Then, run the container (assuming it has tag`counter`), with port 3000, in detached mode, giving the container the name `counter`.
+```bash
+docker run -d -p 3000:3000  --name counter counter
 ```
 
-### Resources Used
-- Node.js
-- Redis
-- node_redis
-- JSDOM
-- Docker
-- Amazon ECS
+## Stop counter
+Stop the container (with the name `counter`) by running
+```bash
+docker rm -f counter
+```
+
+## Automated running
+TODO
+
+## EC2 user data
+TODO
+
+## Resources Used
+- [Node.js](https://nodejs.org)
+- [JSDOM](https://github.com/jsdom/jsdom)
+- [Docker](https://docker.org)
+- [Amazon ECS](https://aws.amazon.com/ecs/)
 

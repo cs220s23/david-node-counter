@@ -4,9 +4,8 @@ WORKDIR /app
 
 COPY . .
 
-# idk if i need this
-#CMD ["npm", "install", "redis"]
+RUN npm install
 
-EXPOSE 80
+EXPOSE 3000
 
 CMD ["node", "app.js"]

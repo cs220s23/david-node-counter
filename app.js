@@ -2,6 +2,12 @@ const { JSDOM } = require('jsdom');
 const fs = require('fs');
 const http = require("http");
 
+// function readCount() {
+//     try {
+//
+//     }
+// }
+
 // http server for displaying on a webpage
 const server = http.createServer((req , res) => {
     const dom = new JSDOM('<html><body></body></html>');
