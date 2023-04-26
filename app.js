@@ -1,5 +1,5 @@
-const redis = require('redis');
-const client = redis.createClient({
+import { createClient } from 'redis';
+const client = createClient({
     socket: {
         host: 'redis',
         port: '6379'
