@@ -1,6 +1,6 @@
 # Node.js Web Counter
-This project is a recreation of a web counter project used as an
-example in previous class examples, recreated with Node.js, getting the count through a, ran with Docker containers, within a remote server (AWS EC2).
+This project is a recreation of a web counter  used as an
+example in previous assignment for running through gunicorn, or on AWS, recreated with Node.js, running in a Docker container, getting, and incrementing the count through a Docker Volume, within a remote server (AWS EC2).
 ## Setup
 TODO
 
