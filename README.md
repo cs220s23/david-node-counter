@@ -1,6 +1,10 @@
 # Node.js Web Counter
 This project is a recreation of a web counter  used as an
 example in previous assignment for running through gunicorn, or on AWS, recreated with Node.js, displaying the counter as HTML code, through an DOM implementation for Node, JSDOM, running in a Docker container, getting, and incrementing the count through a Docker Volume, within a remote server (AWS EC2).
+
+![Sorry it increments by 2](example.gif)
+*Sorry this increments by 2, implementing this took **forever...***
+
 ## Setup
 
 ### Local Dependencies
@@ -37,7 +41,6 @@ Install npm modules:
 ```bash
 npm install
 ```
-
 Run as superuser (to expose port 80):
 ```bash
 sudo node app.js
@@ -45,15 +48,14 @@ sudo node app.js
 Access the counter on a web browser by typing `localhost:80`.
 
 Terminate the server by running Ctrl-X in the terminal, or kill the process.
-
 ### Docker
 Build this repository in a new Docker image, tagged `counter` (omit sudo on all commands if running Docker on macOS)
 ``` bash
 sudo docker build -t counter .
 ```
-Then, run the container (assuming it has the tag `counter`), with port 80, in detached mode, giving the container the name `counter`.
+Then, run the container (assuming it has the tag `counter`), with port 80, in detached mode, giving the container the name `counter`, mounting the folder `data` (in this repo) on `/app/data` in the container for persistence.
 ```bash
-sudo docker run -d -p 80:80  --name counter counter
+sudo docker run -d -p 80:80 -v $(pwd)/data:/app/data  --name counter counter
 ```
 Access the program on a web browser on `localhost:80` if running Docker locally, or on the public IPv4 address of the remote instance, on port 80 if using such.
 
