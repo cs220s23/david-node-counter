@@ -2,9 +2,7 @@
 This project is a recreation of a web counter  used as an
 example in previous assignment for running through gunicorn, or on AWS, recreated with Node.js, running in a Docker container, getting, and incrementing the count through a Docker Volume, within a remote server (AWS EC2).
 ## Setup
-TODO
-
-(Through remote) Clone this repository.
+(Through the remote) Clone this repository.
 ``` bash
 git clone https://github.com/cs220s23/david-node-counter && cd david-node-counter
 ```
@@ -22,7 +20,12 @@ Stop the container (with the name `counter`) by running
 docker rm -f counter
 ```
 ## Automated scripts
-If you want to save time, if Docker and Git are installed, run the `up` and `down` files to build and run the Docker container of the program, and to terminate it respectively.
+Alternatively, if typing (or copy-pasting) numerous commands is too cumbersome, if Docker is already installed in the instance, run the `up` and `down` files to build and run the Docker container of the program, and to terminate it respectively.
+
+Run the script (replace with down to remove the containers)
+```bash
+./up
+```
 
 ## EC2 User Data
 Take the contents of `userdata.sh`, and put in into the "User Data" option in "Advanced Settings" upon the creation of an EC2 instance.
