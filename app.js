@@ -20,7 +20,7 @@ function saveCount(count) {
 
 // http server for displaying on a webpage
 const server = http.createServer((req , res) => {
-    const dom = new JSDOM('<html><body></body></html>');
+    const dom = new JSDOM('<html lang="utf-8"><body></body></html>');
     const body = dom.window.document.body;
     // yes this increments by 2, but just pretend its adding by 1 lol
     let count = parseInt(readCount());

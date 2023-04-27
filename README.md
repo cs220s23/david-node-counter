@@ -12,16 +12,11 @@ Make sure that Node.js and npm are both installed on your system through your pa
 ### Cloud Dependencies 
 Make sure that Git and Docker are installed.
 
-Amazon Linux has Docker in its repos, [Ubuntu](https://docs.docker.com/engine/install/ubuntu/) and [Red Hat](https://docs.docker.com/engine/install/rhel/) do not, use the Docker-CE repo for those, and replace `docker` with `docker-ce` in their respective installations.
+Amazon Linux has Docker in its repos, Docker can be installed on Ubuntu through the [Snap Strore](https://snapcraft.io/docker)
 
-RPM-based distros (Amazon, RHEL):
+#### RPM-based distros (Amazon):
 ```bash
 sudo yum in git docker -y
-```
-
-DEB-based distros (Ubuntu, Debian), through Docker CE:
-```bash
-sudo apt install git docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ```
 
 Enable and start the Docker systemd service.
@@ -29,16 +24,30 @@ Enable and start the Docker systemd service.
 ```bash
 sudo systemctl enable --now docker.service
 ```
+
+#### Snapcraft (preferred for Ubuntu), but install git through apt:
+```bash
+sudo apt install git
+sudo snap install docker
+```
+
+Connect the docker:home plug to the Core snap:
+
+```bash
+sudo snap connect docker:home
+```
 ## EC2 Instance Setup
 Make sure that the instance has HTTP access in Network Settings (port 80), so that way a web browser can access it.
 ![alt text](http.png "Title")
 
 ### EC2 User Data
-**This script is for Amazon Linux only!!**
 
+#### Amazon Linux
 Take the contents of `userdata.sh`, and put in into the "User Data" option in "Advanced Settings" upon the creation of an EC2 instance.
 
 This script should install git and Docker for you, and enable Docker's systemd service.
+#### Ubuntu
+Do the same, except take the contents out of `ubuntuuserdata.sh` instead.
 ## Getting the Program
 Clone this repository:
 ``` bash
