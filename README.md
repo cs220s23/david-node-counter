@@ -77,7 +77,7 @@ Delete the `data` folder to reset the number on the counter.
 rm -r data
 ```
 #### Important!!!
-Use sudo if you are using Docker on Linux, since Docker runs as root, data is only mutable by root.
+Use `sudo` if you are using Docker on Linux, since Docker runs as root, `data` is only mutable by root.
 ```bash
 sudo rm -r data
 ```
