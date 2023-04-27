@@ -1,5 +1,5 @@
 # Node.js Web Counter
-This project is a recreation of a web counter used in an in-class example for running an HTTP server, recreated with Node.js, displaying the counter as HTML code, through an DOM implementation for Node, JSDOM, running in a Docker container, getting, and incrementing the count through a Docker Volume, within a remote server (AWS EC2).
+This project is a recreation of a web counter used as an in-class example for running an HTTP server, recreated with Node.js, displaying the counter as HTML code, through an DOM implementation for Node, JSDOM, running in a Docker container, getting, and incrementing the count through a Docker Volume, within a remote server (AWS EC2).
 
 ![Sorry it increments by 2](counter.gif)
 *Sorry this increments by 2, implementing this took **forever...***
