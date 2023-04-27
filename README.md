@@ -73,6 +73,14 @@ sudo docker rm -f counter
 ```
 ## Reset the counter
 Delete the `data` folder to reset the number on the counter.
+```bash
+rm -r data
+```
+#### Important!!!
+Use sudo if you are using Docker on Linux, since Docker runs as root, data is only mutable by root.
+```bash
+sudo rm -r data
+```
 ## Automated scripts
 Alternatively, if typing (or copy-pasting) numerous commands is too cumbersome, if Docker is already installed in the instance, run the `up` and `down` files to build and run the Docker container of the program, and to terminate it respectively.
 
