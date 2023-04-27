@@ -53,9 +53,9 @@ Build this repository in a new Docker image, tagged `counter` (omit sudo on all 
 ``` bash
 sudo docker build -t counter .
 ```
-Then, run the container (assuming it has the tag `counter`), with port 80, in detached mode, giving the container the name `counter`, mounting the folder `data` (in this repo) on `/app/data` in the container for persistence.
+Then, run the container (assuming it has the tag `counter`), with port 80, in detached mode, giving the container the name `counter`.
 ```bash
-sudo docker run -d -p 80:80 -v $(pwd)/data:/app/data  --name counter counter
+sudo docker run -d -p 80:80 --name counter counter
 ```
 Access the program on a web browser on `localhost:80` if running Docker locally, or on the public IPv4 address of the remote instance, on port 80 if using such.
 
@@ -63,6 +63,9 @@ Stop the container (with the name `counter`) by running
 ```bash
 sudo docker rm -f counter
 ```
+
+## Reset the counter
+Delete the `data` folder to reset the number on the counter.
 ## Automated scripts
 Alternatively, if typing (or copy-pasting) numerous commands is too cumbersome, if Docker is already installed in the instance, run the `up` and `down` files to build and run the Docker container of the program, and to terminate it respectively.
 
