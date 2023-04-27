@@ -3,11 +3,19 @@ const fs = require('fs');
 const http = require("http");
 const port = 80;
 
-// function readCount() {
-//     try {
-//
-//     }
-// }
+function readCount(path, callback) {
+    try {
+        count = Number(fs.open("data/count.txt", 'r'));
+        return count
+    }
+    catch {
+
+    }
+}
+
+function saveCount(count) {
+    fs.mkdir('data')
+}
 
 // http server for displaying on a webpage
 const server = http.createServer((req , res) => {
