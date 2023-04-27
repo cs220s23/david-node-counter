@@ -8,7 +8,7 @@ example in previous assignment for running through gunicorn, or on AWS, recreate
 ## Setup
 
 ### Local Dependencies
-Make sure that Node.js and npm are both installed on your system.
+Make sure that Node.js and npm are both installed on your system through your package manager.
 
 ### Cloud Dependencies 
 Make sure that Git and Docker are installed.
@@ -30,9 +30,18 @@ Enable and start the Docker systemd service.
 ```bash
 sudo systemctl enable --now docker.service
 ```
+## EC2 Instance Setup
+Make sure that the instance has HTTP access in Network Settings (port 80), so that way a web browser can access it.
+![alt text](http.png "Title")
 
-## Getting the Application
-Clone this repository.
+### EC2 User Data
+**This script is for Amazon Linux only!!**
+
+Take the contents of `userdata.sh`, and put in into the "User Data" option in "Advanced Settings" upon the creation of an EC2 instance.
+
+This script should install git and Docker for you, and enable Docker's systemd service.
+## Getting the Program
+Clone this repository:
 ``` bash
 git clone https://github.com/cs220s23/david-node-counter && cd david-node-counter
 ```
@@ -48,7 +57,7 @@ sudo node app.js
 Access the counter on a web browser by typing `localhost:80`.
 
 Terminate the server by running Ctrl-X in the terminal, or kill the process.
-### Docker
+### Run through a Docker container
 Build this repository in a new Docker image, tagged `counter` (omit sudo on all commands if running Docker on macOS)
 ``` bash
 sudo docker build -t counter .
@@ -57,9 +66,9 @@ Then, run the container (assuming it has the tag `counter`), with port 80, in de
 ```bash
 sudo docker run -d -p 80:80 -v $(pwd)/data:/app/data --name counter counter
 ```
-Access the program on a web browser on `localhost:80` if running Docker locally, or on the public IPv4 address of the remote instance, on port 80 if using such.
+Access the program on a web browser on `localhost:80` if running Docker locally, or on the public IPv4 DNS, on port 80 if using a server like EC2.
 
-Stop the container (with the name `counter`) by running
+Stop the container (with the name `counter`) by running:
 ```bash
 sudo docker rm -f counter
 ```
@@ -78,18 +87,6 @@ Run the script (replace with `down` to remove the containers)
 sudo ./up
 ```
 
-## EC2 Instance Setup
-Make sure that the instance has HTTP access in Network Settings (port 80), so that way a web browser can access it.
-![alt text](http.png "Title")
-
-### EC2 User Data
-**This script is for Amazon Linux only!!**
-
-Take the contents of `userdata.sh`, and put in into the "User Data" option in "Advanced Settings" upon the creation of an EC2 instance.
-
-This script should install git, Docker, as well as clone this repository, and enter into it.
-
-From that point you should be able to run the `up` and `down` scripts to automate the launching of the container.
 ## Resources Used
 - [Node.js](https://nodejs.org)
 - [JSDOM](https://github.com/jsdom/jsdom)
