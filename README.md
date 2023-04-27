@@ -106,5 +106,5 @@ sudo ./up
 ## Resources Used
 - [Node.js](https://nodejs.org)
 - [JSDOM](https://github.com/jsdom/jsdom)
-- [Docker](https://docker.org)
+- [Docker](https://docker.com)
 - [Amazon ECS](https://aws.amazon.com/ecs/)
