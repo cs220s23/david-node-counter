@@ -12,7 +12,7 @@ Make sure that Node.js and npm are both installed on your system through your pa
 ### Cloud Dependencies 
 Make sure that Git and Docker are installed.
 
-Amazon Linux has Docker in its repos, Docker can be installed on Ubuntu through the [Snap Strore](https://snapcraft.io/docker)
+Amazon Linux has Docker in its repos, Docker can be installed on Ubuntu through the [Snap Store](https://snapcraft.io/docker)
 
 #### RPM-based distros (Amazon):
 ```bash
