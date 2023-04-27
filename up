@@ -1,2 +1,2 @@
 docker build -t counter .
-docker run -d -p 80:80 --name counter counter
+docker run -d -p 80:80 -v $(pwd)/data:/app/data --name counter counter
