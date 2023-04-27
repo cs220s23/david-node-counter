@@ -1,2 +1,2 @@
-sudo docker build -t counter .
-sudo docker run -d -p 80:80 --name counter counter
+docker build -t counter .
+docker run -d -p 80:80 --name counter counter

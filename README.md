@@ -56,7 +56,7 @@ chmod +x up down
 
 Run the script (replace with down to remove the containers)
 ```bash
-./up
+sudo ./up
 ```
 
 ## EC2 User Data

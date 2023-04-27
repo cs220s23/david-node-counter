@@ -1,1 +1,1 @@
-sudo docker rm -f counter
+docker rm -f counter
