@@ -1,7 +1,7 @@
 {
   "name": "david-node-counter",
   "version": "1.0.0",
-  "description": "A reimplementation of a class example of a web counter",
+  "description": "A reimplementation of an in-class example of a web counter",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,7 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "redis": "^4.6.5",
     "jsdom": "^21.1.1"
   }
 }
